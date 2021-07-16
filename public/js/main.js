@@ -1,11 +1,15 @@
 const socket = io();
 //
 const chatForm = document.getElementById('chat-form');
+const chatMessages = document.querySelector('.chat-messages');
 
 //message from server
 socket.on('message', message=>{
     console.log(message);
     outputMessage(message);
+
+    // show message at the bottom auto scrolling
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 //message submit
