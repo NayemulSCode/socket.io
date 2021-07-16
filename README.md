@@ -1,6 +1,6 @@
 # socket.io chat app
 
-##run server
+## run server
 npm run server
 
 ## for node
