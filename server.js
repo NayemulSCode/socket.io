@@ -12,7 +12,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 //run when client connects
 io.on('connection', socket =>{
     console.log('new socket connected!');
+    //current user(single)
     socket.emit('message',"welcome sChat");
+
+    //broadcast when a user connect(all user)
+    socket.broadcast.emit('message','A user join sChat');
+
+    //runs when client disconnects
+    socket.on('disconnect', ()=>{
+        io.emit('message', 'A user has left the sChat');
+    })
 })
 
 
