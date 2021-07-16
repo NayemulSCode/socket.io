@@ -21,6 +21,9 @@ io.on('connection', socket =>{
     //runs when client disconnects
     socket.on('disconnect', ()=>{
         io.emit('message', 'A user has left the sChat');
+    });
+    socket.on('chatMessage', msg=>{
+        console.log(msg);
     })
 })
 
