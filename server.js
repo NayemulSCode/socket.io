@@ -12,6 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //run when client connects
 io.on('connection', socket =>{
     console.log('new socket connected!');
+    socket.emit('message',"welcome sChat");
 })
 
 
