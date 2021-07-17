@@ -3,6 +3,14 @@ const socket = io();
 const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 
+// get username and room from url
+const {username, room}  = Qs.parse(location.search,{
+    ignoreQueryPrefix: true
+});
+
+// join chatroom
+socket.emit('joinRoom',{username, room});
+
 //message from server
 socket.on('message', message=>{
     console.log(message);
