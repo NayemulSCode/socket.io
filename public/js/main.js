@@ -63,3 +63,13 @@ function outputUsers(users){
         userList.appendChild(li);
     })
 }
+// prompt the user before leave chat room
+document.getElementById('leave-btn').addEventListener('click',()=>{
+    const leaveRoom = confirm('Are you sure you want to leave the schat room?');
+    if(leaveRoom){
+        window.location('../index.html');
+    }
+    else{
+        
+    }
+})
