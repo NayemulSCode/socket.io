@@ -24,6 +24,12 @@ io.on('connection', socket =>{
         socket.broadcast
         .to(user.room)
         .emit('message',formatMessage(botName,`${user.username} join sChat`));
+        
+        //send users and room info
+        io.to(user.room).emit('roomUsers',{
+            room: user.room,
+            users: getRoomUsers(user.room)
+        });
 
     });
    
